@@ -1,6 +1,8 @@
 <div>
   <h3><%= @user.name %></h3>
   <%= attachment_image_tag @user, :profile_image, format: 'jpeg', size: "100x100", fallback: "no_image.jpg" %>
+  <p>フォロー数: <%= @user.followings.count %></p>
+  <p>フォロワー数: <%= @user.followers.count %></p>
   <% if @user.id == current_user.id %>
   <p><%= link_to "プロフィール編集", edit_user_path(@user), class: 'nav-link text-dark' %></p>
   <% end %>
